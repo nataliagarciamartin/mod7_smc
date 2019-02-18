@@ -22,6 +22,7 @@ rma_two_cell <- rma(two_cell)
 
 affy_two_cell <- exprs(rma_two_cell)
 head(affy_two_cell)
+
 # head(2^affy_two_cell)
 
 library(R.matlab)
