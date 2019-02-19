@@ -20,11 +20,11 @@ cell_prop = [0.05 0.05 0.05 0.70 0.70 0.70 0.25 0.25 0.25 0.70 0.70 0.70 0.45 0.
              0.70 0.70 0.70 0.25 0.25 0.25 0.05 0.05 0.05 0.05 0.05 0.05 0.10 0.10 0.10 0.25 0.25 0.25 0.20 0.20 0.20 0.15 0.15 0.15 0.10 0.10 0.10 0.05 0.05 0.05 0.01 0.01 0.01];
  
           
-% Omit first 4999 genes.
-ibere = 5000;
+% Gene selection
+ibere = 2000; 
 M = cell_prop;
-X = cell_spec_expr_value(ibere:5499,:); % Replace 5499 with end for original algorithm
-Y = YY(ibere:5499,:);
+X = cell_spec_expr_value(ibere:3999,:);
+Y = YY(ibere:3999,:);
 
 % Set values of I, J and K.
 I = size(Y,1);
