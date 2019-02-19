@@ -26,7 +26,7 @@ cell_prop = [0.05 0.05 0.05 0.70 0.70 0.70 0.25 0.25 0.25 0.70 0.70 0.70 0.45 0.
 
 %ibere = 2000; 
 
-index = randi(size(three_cells_data,1), 1, 2000);
+index = randi(size(three_cells_data,1), 1, 10000);
 M = cell_prop;
 X = cell_spec_expr_value(index,:);
 Y = YY(index,:);
@@ -44,14 +44,14 @@ E_r = 0:0.0002:1; % 5000 iterations
 T = length(E_r);
 
 % Specify number of samples.
-N = 40;
+N = 25;
 
 
 %%% PRIOR SPEC
 % 1. M
 
 % Prior specification for M     
-mA = 0.5; sdM = 0.1; vA = sdM^2; 
+mA = 1/3; sdM = 0.1; vA = sdM^2; 
 M_bar = mA*ones(K,J);
 
 M_bar_VEC = M_bar(:); 
