@@ -1,5 +1,7 @@
 clear all; close all; clc;
 
+% rng(33)
+
 tic;
 
 % Load in data, examine pure cell gene expressions and estimate the cell
@@ -21,10 +23,13 @@ cell_prop = [0.05 0.05 0.05 0.70 0.70 0.70 0.25 0.25 0.25 0.70 0.70 0.70 0.45 0.
  
           
 % Gene selection
-ibere = 2000; 
+
+%ibere = 2000; 
+
+index = randi(size(three_cells_data,1), 1, 2000);
 M = cell_prop;
-X = cell_spec_expr_value(ibere:3999,:);
-Y = YY(ibere:3999,:);
+X = cell_spec_expr_value(index,:);
+Y = YY(index,:);
 
 % Set values of I, J and K.
 I = size(Y,1);

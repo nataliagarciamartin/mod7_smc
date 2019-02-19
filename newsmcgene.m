@@ -1,5 +1,7 @@
 clear all; close all; clc;
 
+% rng(10);
+
 tic;
 
 % Load in data, examine pure cell gene expressions and estimate the cell
@@ -21,11 +23,13 @@ cell_prop = [0.05 0.05 0.05 0.10 0.10 0.10 0.25 0.25 0.25 0.50 0.50 0.50 0.50 0.
              0.95 0.95 0.95 0.90 0.90 0.90 0.75 0.75 0.75 0.50 0.50 0.50 0.50 0.50 0.50 0.50 0.50 0.50 0.25 0.25 0.25 0.10 0.10 0.10 0.05 0.05 0.05];
  
           
-% Omit first 4999 genes.
-ibere = 5000;
+% Gene selection.
+
+% ibere = 5000;
+index = randi(size(Affy_2cells_Data,1), 1, 2000);
 M = cell_prop;
-X = cell_spec_expr_value(ibere:6999,:); % Replace 5499 with end for original algorithm
-Y = YY(ibere:6999,:);
+X = cell_spec_expr_value(index,:);
+Y = YY(index,:);
 
 % Set values of I, J and K.
 I = size(Y,1);
@@ -36,7 +40,7 @@ K = size(M,1);
 n_para = I*K + K*J + 1;
 
 % Specify cooling schedule for the likelihood.
-E_r = 0:0.0002:1; % 1000 iterations
+E_r = 0:0.0002:1; % 5000 iterations
 T = length(E_r);
 
 % Specify number of samples.
